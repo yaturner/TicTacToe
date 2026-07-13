@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/status_default"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="14sp" />
+
+        <!-- Idle: host or join -->
+        <LinearLayout
+            android:id="@+id/groupIdle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnHost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_host" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="@string/label_or"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+
+            <EditText
+                android:id="@+id/etJoinAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="none"
+                android:hint="@string/hint_address"
+                android:inputType="textUri"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/etJoinToken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints="none"
+                android:hint="@string/hint_token"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/btnJoin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/action_join" />
+        </LinearLayout>
+
+        <!-- Hosting/connecting: waiting for the other player -->
+        <LinearLayout
+            android:id="@+id/groupInvite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvInvite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="monospace"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                tools:text="Share this with your opponent:\n192.168.1.12:7060\nToken: 4821" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_cancel" />
+        </LinearLayout>
+
+        <!-- Board: both players connected -->
+        <LinearLayout
+            android:id="@+id/groupBoard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvTurn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Your turn (X)" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button android:id="@+id/cell0" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell1" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell2" style="@style/BoardCell" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button android:id="@+id/cell3" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell4" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell5" style="@style/BoardCell" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button android:id="@+id/cell6" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell7" style="@style/BoardCell" />
+                    <Button android:id="@+id/cell8" style="@style/BoardCell" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnNewGame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/action_new_game" />
+
+            <Button
+                android:id="@+id/btnLeave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/action_leave" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
